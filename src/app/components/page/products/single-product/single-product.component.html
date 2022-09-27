@@ -1,0 +1,40 @@
+
+
+
+        <div class="shell">
+            <div class="container">
+              <div class="row">
+                <div class="">
+                  <div class="wsk-cp-product">
+                    <div class="wsk-cp-img" routerLink="/detalis/{{data.id}}"  >
+                        <img src="{{data.image}}" alt="">
+                    </div>
+                    <div class="wsk-cp-text">
+                      <div class="category">
+                        <span>{{data.category}}</span>
+                      </div>
+                      <div class="title-product">
+                        <h3>{{data.title}}</h3>
+                      </div>
+                      <div class="description-prod">
+                        <p>{{data.description}}</p>
+                      </div>
+                      <div class="card-footer">
+                        <div class="wcf-left"><span class="price">${{data.price}}</span></div>
+                        <div class="wcf-right">
+                            <a  class=" btn btn-dark"*ngIf="!addButton" (click)="addButton = true" ><i class="fa-solid fa-plus"></i></a>
+                            <div class="box-cart d-flex w-50"*ngIf="addButton"  >
+                                <input type="number" class="form-control border-dark" [(ngModel)]="amount">
+                                <button class="btn btn-dark " (click)="add() ;addButton = false">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>

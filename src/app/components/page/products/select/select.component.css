@@ -1,0 +1,8 @@
+select {
+    padding:10px 20px;
+    margin: 20px 0;
+    background: #fff;
+    color: #001739;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    width: 200px;
+}

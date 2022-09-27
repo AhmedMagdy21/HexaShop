@@ -1,0 +1,108 @@
+
+<section class="cart ">
+    <div class="container px-3 my-5 ">
+        <!-- Shopping cart table -->
+        <div class="card ">
+            <div class="card-header">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="text-center">
+                      <h2 class="">Shopping Cart</h2>
+                      <span> You have  <label class="text-danger"> {{cartProducts.length}}</label> Item in cart</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6 ">
+                    <button type="button" class="btn btn-outline-danger float-end"  (click)="clear()" >
+                      <span class="text-btn">Clear</span> 
+                      <span class="icon-btn"><i class="fa-solid fa-ban"></i></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered m-0">
+                    <thead>
+                      <tr>
+                        <!-- Set columns width -->
+                        <th class="text-center py-3 px-4" style="min-width: 400px;">Product Name &amp; Details</th>
+                        <th class="text-right py-3 px-4" style="width: 100px;">Price</th>
+                        <th class="text-center py-3 px-4" style="width: 120px;">Quantity</th>
+                        <th class="text-right py-3 px-4" style="width: 100px;">Total</th>
+                        <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#" class="shop-tooltip float-none text-light" title="" data-original-title="Clear cart"><i class="ino ion-md-trash"></i></a></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+            
+                      <tr  *ngFor=" let item of cartProducts ; let index =index">
+                        <td class="p-4">
+                          <div class="media align-items-center">
+                            <img src="{{item.item.image}}" class="d-block ui-w-40 ui-bordered mr-4" alt="">
+                            <div class="media-body">
+                            
+                              <small>
+                                <span class="text-muted">Name: </span> <span> {{item.item.title}} </span> <br>
+                                <span class="text-muted">Category: </span> <span>{{item.item.category}}</span>
+                              </small>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="text-right font-weight-semibold align-middle p-4">&euro;{{item.item.price }}</td>
+                        <td class="align-middle p-4">
+                          <div class="amount  d-flex">
+                            <button class="btn btn-dark"  (click)="addAmount(index)">+</button>
+                            <input class="form-control" type="number" (change)="changeAmount()" min="1" [(ngModel)]="item.quantity"  s>
+                            <button class="btn btn-dark" (click)="minsAmount(index)">-</button>
+                          </div>
+                        </td>
+                        <td class="text-right font-weight-semibold align-middle p-4">&euro;{{item.item.price * item.quantity}}  </td>
+                        <td class="text-center align-middle "><button  (click)="Remove(index)" class="btn  p-2" title="" data-original-title="Remove"><i class="fa-solid fa-xmark"></i></button></td>
+                      </tr>
+    
+                    </tbody>
+                  </table>
+                </div>
+                <!-- / Shopping cart table -->
+            
+                <div class="containerd-flex flex-wrap justify-content-between align-items-center pb-4">
+                  <div class="row">
+                    <div class="col-md-6 d-flex">
+        
+                      <div class="text-right mt-4">
+                        <label class="text-muted font-weight-normal m-0">Total price</label>
+                        <div class="text-large"><strong>&euro; {{total}}</strong></div>
+                      </div>
+                    </div>
+            
+                    <div class="col-md-6  " style="display: flex;justify-content: space-around; align-items: center;">
+                      <button type="button" class="btn btn-outline-dark" routerLink="/products">Back to shopping</button>
+                      <button type="button" class="btn btn-outline-success" (click)=" addCart()" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Checkout</button>
+                    </div>
+                  </div>
+            
+                </div>
+
+            
+              </div>
+
+
+              <div class="modal fade" id="exampleModal" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <img src="../../../../assets/images/cartGif.gif" alt="gif" >
+                    <div class="modal-footer">
+                      
+                      <button type="button" class="btn btn-success"  routerLink="/products">Back to shopping </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+   
+        </div>
+
+
+</section>

@@ -1,0 +1,48 @@
+.cart{
+    margin-top: 10%;
+}
+
+
+
+
+.ui-w-40 {
+    width: 40px !important;
+    height: auto;
+}
+
+.card{
+    box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);    
+}
+.card-header button .icon-btn{
+    display: none;
+}
+.ui-product-color {
+    display: inline-block;
+    overflow: hidden;
+    margin: .144em;
+    width: .875rem;
+    height: .875rem;
+    border-radius: 10rem;
+    -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
+    vertical-align: middle;
+}
+.amount input{
+    margin: 0 5px;
+    width: 70px;
+
+}
+
+
+
+@media screen and (max-width: 880px){
+    .cart{
+        margin-top: 30%;
+    }
+    .card-header button .text-btn{
+        display: none;
+    }
+    .card-header button .icon-btn{
+        display: flex;
+    }
+  }
